@@ -36,7 +36,7 @@ Construído com CSS puro + JavaScript vanilla — zero dependências.
 | Dia | Commit | Status |
 |-----|--------|--------|
 | **Dia 1** | `fix: resolve bugs de z-index, tap-highlight e menu mobile` | ✅ Concluído |
-| **Dia 2** | `feat: animações de entrada escalonadas nos itens do menu mobile` | 🔜 |
+| **Dia 2** | `feat: animações escalonadas + linha aurora + prefers-reduced-motion` | ✅ Concluído |
 | **Dia 3** | `feat: spotlight cursor effect na navbar + ripple nos links` | 🔜 |
 | **Dia 4** | `feat: search bar expansível integrada à navbar` | 🔜 |
 | **Dia 5** | `feat: active indicator animado com underline que desliza entre itens` | 🔜 |

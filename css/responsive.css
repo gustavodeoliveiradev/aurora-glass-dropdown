@@ -115,13 +115,71 @@
         transform: translateX(0);
     }
 
+    /* ── Animação escalonada dos itens ─────────────────────────────── */
+    /* Estado inicial: cada item começa invisível e deslocado */
     .nav-item {
         width: 100%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        opacity: 0;
+        transform: translateX(32px);
+        transition:
+            opacity 0.35s ease,
+            transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+            border-color 0.3s ease,
+            background 0.3s ease;
+    }
+
+    /* Quando o menu abre, os itens entram em cascata */
+    .nav-menu.active .nav-item {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    /* Delay progressivo por posição — até 8 itens */
+    .nav-menu.active .nav-item:nth-child(1)  { transition-delay: 0.08s; }
+    .nav-menu.active .nav-item:nth-child(2)  { transition-delay: 0.13s; }
+    .nav-menu.active .nav-item:nth-child(3)  { transition-delay: 0.18s; }
+    .nav-menu.active .nav-item:nth-child(4)  { transition-delay: 0.23s; }
+    .nav-menu.active .nav-item:nth-child(5)  { transition-delay: 0.28s; }
+    .nav-menu.active .nav-item:nth-child(6)  { transition-delay: 0.33s; }
+    .nav-menu.active .nav-item:nth-child(7)  { transition-delay: 0.38s; }
+    .nav-menu.active .nav-item:nth-child(8)  { transition-delay: 0.43s; }
+
+    /* Ao fechar: reseta delays para sair rápido e limpo */
+    .nav-menu:not(.active) .nav-item {
+        transition-delay: 0s !important;
     }
 
     [data-theme="light"] .nav-item {
         border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    /* Linha brilhante que varre o menu ao abrir */
+    .nav-menu::after {
+        content: '';
+        position: absolute;
+        top: var(--navbar-height);
+        left: 1.25rem;
+        right: 1.25rem;
+        height: 1px;
+        background: linear-gradient(90deg,
+            transparent,
+            rgba(0, 245, 196, 0.6) 40%,
+            rgba(168, 85, 247, 0.6) 60%,
+            transparent
+        );
+        opacity: 0;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: none;
+        border-radius: 1px;
+    }
+
+    .nav-menu.active::after {
+        opacity: 1;
+        transform: scaleX(1);
+        transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s,
+                    opacity 0.3s ease 0.1s;
     }
 
     .nav-link {

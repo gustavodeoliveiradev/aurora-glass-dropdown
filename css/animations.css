@@ -136,3 +136,29 @@
 .has-nested.open > .nested-dropdown {
     animation: nested-enter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+/* ============================================
+   PREFERS-REDUCED-MOTION
+   Respeita quem prefere menos movimento
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    .nav-item,
+    .nav-menu,
+    .nav-menu::after,
+    .dropdown,
+    .dropdown-list li,
+    .nested-dropdown,
+    .nav-link,
+    .nav-link::after,
+    .nav-link::before {
+        animation: none !important;
+        transition: opacity 0.1s ease !important;
+        transform: none !important;
+        transition-delay: 0s !important;
+    }
+
+    .nav-menu.active .nav-item {
+        opacity: 1;
+        transform: none;
+    }
+}
