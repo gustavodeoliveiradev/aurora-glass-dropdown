@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aurora Glass — Tech Dropdown</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/dropdown.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="aurora-bg">
+        <div class="aurora-blob blob-1"></div>
+        <div class="aurora-blob blob-2"></div>
+        <div class="aurora-blob blob-3"></div>
+    </div>
+
+    <nav class="navbar" id="navbar">
+        <div class="navbar-brand">
+            <i class="ph ph-hexagon logo-icon"></i>
+            <span class="logo-text">Aurora<span class="logo-accent">Tech</span></span>
+        </div>
+
+        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+
+        <ul class="nav-menu" id="navMenu">
+            <li class="nav-item active">
+                <a href="#" class="nav-link">
+                    <i class="ph ph-house"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <a href="#" class="nav-link">
+                    <i class="ph ph-info"></i>
+                    <span>Sobre</span>
+                    <i class="ph ph-caret-down dropdown-arrow"></i>
+                </a>
+                <div class="dropdown">
+                    <div class="dropdown-header">
+                        <i class="ph ph-buildings"></i>
+                        <span>A Empresa</span>
+                    </div>
+                    <ul class="dropdown-list">
+                        <li><a href="#"><i class="ph ph-book-open-text"></i>Nossa História</a></li>
+                        <li><a href="#"><i class="ph ph-users"></i>Equipe</a></li>
+                        <li><a href="#"><i class="ph ph-briefcase"></i>Carreiras</a></li>
+                        <li><a href="#"><i class="ph ph-trophy"></i>Prêmios</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item has-dropdown mega-dropdown">
+                <a href="#" class="nav-link">
+                    <i class="ph ph-rocket-launch"></i>
+                    <span>Serviços</span>
+                    <i class="ph ph-caret-down dropdown-arrow"></i>
+                </a>
+                <div class="dropdown dropdown-wide">
+                    <div class="dropdown-grid">
+                        <div class="dropdown-column">
+                            <div class="dropdown-header">
+                                <i class="ph ph-code"></i>
+                                <span>Desenvolvimento</span>
+                            </div>
+                            <ul class="dropdown-list">
+                                <li><a href="#"><i class="ph ph-globe"></i>Web Apps</a></li>
+                                <li><a href="#"><i class="ph ph-device-mobile"></i>Mobile</a></li>
+                                <li class="has-nested">
+                                    <a href="#">
+                                        <span class="nested-link-content">
+                                            <i class="ph ph-stack"></i>
+                                            <span>Backend</span>
+                                        </span>
+                                        <i class="ph ph-caret-right nested-arrow"></i>
+                                    </a>
+                                    <div class="nested-dropdown">
+                                        <ul>
+                                            <li><a href="#"><i class="ph ph-database"></i>APIs REST</a></li>
+                                            <li><a href="#"><i class="ph ph-cloud"></i>Cloud Native</a></li>
+                                            <li><a href="#"><i class="ph ph-shield-check"></i>Segurança</a></li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li><a href="#"><i class="ph ph-cpu"></i>DevOps</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown-column">
+                            <div class="dropdown-header">
+                                <i class="ph ph-paint-brush"></i>
+                                <span>Design</span>
+                            </div>
+                            <ul class="dropdown-list">
+                                <li><a href="#"><i class="ph ph-palette"></i>UI/UX</a></li>
+                                <li><a href="#"><i class="ph ph-pen-nib"></i>Branding</a></li>
+                                <li><a href="#"><i class="ph ph-video"></i>Motion</a></li>
+                            </ul>
+                        </div>
+
+                        <div class="dropdown-column">
+                            <div class="dropdown-header">
+                                <i class="ph ph-chart-line-up"></i>
+                                <span>Consultoria</span>
+                            </div>
+                            <ul class="dropdown-list">
+                                <li><a href="#"><i class="ph ph-strategy"></i>Estratégia Digital</a></li>
+                                <li><a href="#"><i class="ph ph-gear"></i>Arquitetura</a></li>
+                                <li><a href="#"><i class="ph ph-chart-pie-slice"></i>Analytics</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item has-dropdown">
+                <a href="#" class="nav-link">
+                    <i class="ph ph-cpu"></i>
+                    <span>Tech Stack</span>
+                    <i class="ph ph-caret-down dropdown-arrow"></i>
+                </a>
+                <div class="dropdown">
+                    <div class="dropdown-header">
+                        <i class="ph ph-layers"></i>
+                        <span>Nossas Tecnologias</span>
+                    </div>
+                    <ul class="dropdown-list">
+                        <li><a href="#"><i class="ph ph-file-js"></i>JavaScript / TypeScript</a></li>
+                        <li><a href="#"><i class="ph ph-file-tsx"></i>React & Next.js</a></li>
+                        <li><a href="#"><i class="ph ph-file-py"></i>Python & Django</a></li>
+                        <li><a href="#"><i class="ph ph-file-c"></i>Rust & Go</a></li>
+                        <li><a href="#"><i class="ph ph-docker-logo"></i>Docker & K8s</a></li>
+                    </ul>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="ph ph-folder-open"></i>
+                    <span>Portfólio</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="ph ph-newspaper"></i>
+                    <span>Blog</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="#" class="nav-link">
+                    <i class="ph ph-envelope-simple"></i>
+                    <span>Contato</span>
+                </a>
+            </li>
+        </ul>
+
+        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+            <i class="ph ph-sun" id="themeIcon"></i>
+        </button>
+    </nav>
+
+    <main class="hero">
+        <h1 class="hero-title">
+            Aurora<span class="hero-accent">Glass</span>
+        </h1>
+        <p class="hero-subtitle">
+            Dropdown menu moderno com glassmorphism, animações fluidas<br>
+            e totalmente acessível. Construído com CSS puro + JavaScript vanilla.
+        </p>
+        <div class="hero-badges">
+            <span class="badge"><i class="ph ph-check-circle"></i>Sem dependências</span>
+            <span class="badge"><i class="ph ph-check-circle"></i>Acessível (ARIA)</span>
+            <span class="badge"><i class="ph ph-check-circle"></i>Responsivo</span>
+        </div>
+    </main>
+
+    <script src="js/navbar.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script src="js/mobile.js"></script>
+    <script src="js/theme.js"></script>
+</body>
+</html>

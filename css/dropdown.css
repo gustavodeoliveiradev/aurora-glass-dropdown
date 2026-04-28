@@ -1,0 +1,265 @@
+/* ============================================
+   AURORA GLASS — DROPDOWNS (FIX FINAL)
+   Backend visível, sem transparência problemática
+   ============================================ */
+
+.dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    min-width: 240px;
+    max-width: 340px;
+
+    background: #0f111a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9);
+
+    padding: 0.75rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: all 0.25s ease;
+    /* SEM z-index aqui: definir z-index criaria um stacking context
+       que aprisionaria o nested-dropdown dentro dele, impedindo que
+       o filho apareça acima dos itens de outras colunas. */
+}
+
+[data-theme="light"] .dropdown {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 12px;
+    height: 12px;
+    background: #0f111a;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="light"] .dropdown::before {
+    background: #ffffff;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    border-left: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.nav-item.open > .dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.75rem 0.75rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #00f5c4;
+}
+
+[data-theme="light"] .dropdown-header {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    color: #7c3aed;
+}
+
+.dropdown-header i {
+    font-size: 1rem;
+}
+
+.dropdown-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    overflow: visible;
+    position: relative;
+}
+
+.dropdown-list li a {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 0.75rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #94a3b8;
+    transition: all 0.15s ease;
+}
+
+.dropdown-list li a i {
+    font-size: 1rem;
+    color: #64748b;
+    transition: color 0.15s ease;
+    flex-shrink: 0;
+}
+
+.dropdown-list li a:hover {
+    background: rgba(0, 245, 196, 0.1);
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+[data-theme="light"] .dropdown-list li a:hover {
+    color: #0f172a;
+}
+
+.dropdown-list li a:hover i {
+    color: #00f5c4;
+}
+
+/* ============================================
+   NESTED — 100% VISÍVEL, SEM TRANSPARÊNCIA
+   ============================================ */
+
+.has-nested {
+    position: relative;
+    z-index: 1; /* padrão */
+}
+
+.has-nested.open {
+    z-index: 100; /* sobe acima das colunas irmãs quando aberto */
+}
+
+.has-nested > a {
+    justify-content: space-between;
+}
+
+.nested-link-content {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.nested-arrow {
+    font-size: 0.7rem;
+    color: #64748b;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    margin-left: 0.5rem;
+}
+
+.nested-dropdown {
+    position: absolute;
+    top: -0.5rem;
+    left: calc(100% + 6px);
+    min-width: 200px;
+
+    /* FUNDO 100% SÓLIDO — garante visibilidade total do primeiro item */
+    background: #1e2035;
+    border: 1px solid rgba(0, 245, 196, 0.18);
+    border-radius: 12px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.9),
+        0 0 0 1px rgba(0, 245, 196, 0.06);
+
+    padding: 0.6rem;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-6px);
+    transition: all 0.2s ease;
+    z-index: 3000;
+}
+
+[data-theme="light"] .nested-dropdown {
+    background: #f1f5f9;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* Mobile: abre inline com .open */
+.has-nested.open > .nested-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(0);
+}
+
+.has-nested.open .nested-arrow {
+    transform: rotate(90deg);
+    color: #00f5c4;
+}
+
+.nested-dropdown ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.nested-dropdown ul li a {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    color: #94a3b8;
+}
+
+.nested-dropdown ul li a:hover {
+    background: rgba(0, 245, 196, 0.1);
+    color: #ffffff;
+}
+
+[data-theme="light"] .nested-dropdown ul li a:hover {
+    color: #0f172a;
+}
+
+/* ============================================
+   MEGA DROPDOWN
+   ============================================ */
+
+.dropdown-wide {
+    min-width: 680px;
+    max-width: 90vw;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    padding: 1rem;
+    overflow: visible;
+}
+
+.nav-item.open > .dropdown-wide {
+    transform: translateX(-50%) translateY(0);
+}
+
+.dropdown-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    overflow: visible;
+}
+
+.dropdown-column {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+.dropdown-column .dropdown-header {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.6rem;
+}
+
+.dropdown-column .dropdown-list {
+    gap: 0.1rem;
+}
+
+.dropdown-column:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    padding-right: 1.5rem;
+}
+
+[data-theme="light"] .dropdown-column:not(:last-child) {
+    border-right: 1px solid rgba(0, 0, 0, 0.06);
+}
