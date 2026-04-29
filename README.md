@@ -37,10 +37,10 @@ Construído com CSS puro + JavaScript vanilla — zero dependências.
 |-----|--------|--------|
 | **Dia 1** | `fix: resolve bugs de z-index, tap-highlight e menu mobile` | ✅ Concluído |
 | **Dia 2** | `feat: animações escalonadas + linha aurora + prefers-reduced-motion` | ✅ Concluído |
-| **Dia 3** | `feat: spotlight cursor effect na navbar + ripple nos links` | 🔜 |
+| **Dia 3** | `feat: spotlight cursor na navbar + ripple nos links ao clicar` | ✅ Concluído |
 | **Dia 4** | `feat: search bar expansível integrada à navbar` | 🔜 |
 | **Dia 5** | `feat: active indicator animado com underline que desliza entre itens` | 🔜 |
-| **Dia 6** | `feat: modo reduzido de movimento (prefers-reduced-motion)` | 🔜 |
+| **Dia 6** | `feat: scroll behavior — navbar compacta + progress bar de leitura` | 🔜 |
 | **Dia 7** | `refactor: audit de acessibilidade completo + documentação final` | 🔜 |
 
 ---

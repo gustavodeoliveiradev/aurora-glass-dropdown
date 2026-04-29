@@ -150,11 +150,16 @@
     .nested-dropdown,
     .nav-link,
     .nav-link::after,
-    .nav-link::before {
+    .nav-link::before,
+    .nav-link .ripple {
         animation: none !important;
         transition: opacity 0.1s ease !important;
         transform: none !important;
         transition-delay: 0s !important;
+    }
+
+    .nav-link .ripple {
+        display: none;
     }
 
     .nav-menu.active .nav-item {
