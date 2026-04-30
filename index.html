@@ -169,7 +169,15 @@
                 </a>
             </li>
 
-            <!-- Rodapé do menu mobile: tema -->
+            <!-- Busca mobile — linha própria -->
+            <li class="nav-item nav-item--search-row">
+                <button class="nav-search-mobile" id="searchTriggerMobile" aria-label="Buscar">
+                    <i class="ph ph-magnifying-glass"></i>
+                    <span>Buscar</span>
+                </button>
+            </li>
+
+            <!-- Tema mobile — linha própria com separador -->
             <li class="nav-item nav-item--footer">
                 <button class="nav-theme-mobile" id="themeToggleMobile" aria-label="Alternar tema">
                     <i class="ph ph-sun" id="themeIconMobile"></i>
@@ -182,7 +190,7 @@
             <i class="ph ph-sun" id="themeIcon"></i>
         </button>
 
-        <!-- Search -->
+        <!-- Search — visível só no desktop -->
         <div class="search-wrapper" id="searchWrapper" role="search">
             <button class="search-trigger" id="searchTrigger" aria-label="Abrir busca" aria-expanded="false" aria-controls="searchInput">
                 <i class="ph ph-magnifying-glass"></i>
@@ -202,6 +210,24 @@
             </div>
         </div>
     </nav>
+
+    <!-- Search overlay mobile — fora do nav para evitar stacking context -->
+    <div class="search-overlay-mobile" id="searchOverlayMobile" role="search" aria-hidden="true">
+        <div class="search-overlay-inner">
+            <i class="ph ph-magnifying-glass search-overlay-icon"></i>
+            <input
+                type="search"
+                id="searchInputMobile"
+                class="search-overlay-input"
+                placeholder="Buscar..."
+                autocomplete="off"
+                aria-label="Campo de busca"
+            />
+            <button class="search-overlay-close" id="searchOverlayClose" aria-label="Fechar busca">
+                <i class="ph ph-x"></i>
+            </button>
+        </div>
+    </div>
 
     <main class="hero">
         <h1 class="hero-title">

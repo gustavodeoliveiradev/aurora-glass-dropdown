@@ -60,26 +60,56 @@
         order: 4;
         z-index: 1002;
         padding: 0.5rem;
+        margin-left: auto;
     }
 
-    /* Esconde o theme-toggle da navbar no mobile — fica dentro do menu */
-    .theme-toggle {
+    /* Esconde tema e busca da navbar no mobile — ficam dentro do menu */
+    .theme-toggle,
+    .search-wrapper {
         display: none;
     }
 
-    /* Search wrapper fica entre logo e hamburger */
-    .search-wrapper {
-        order: 3;
-        margin-left: auto;
-        margin-right: 0.25rem;
+    /* Linha da busca mobile */
+    .nav-item--search-row {
+        display: block;
+        border-bottom: none !important;
+        padding: 0.5rem 0 0;
     }
 
-    /* Botão de tema dentro do menu mobile */
+    .nav-search-mobile {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        width: 100%;
+        padding: 0.85rem 1rem;
+        background: rgba(0, 245, 196, 0.05);
+        border: 1px solid rgba(0, 245, 196, 0.15);
+        color: #94a3b8;
+        font-family: inherit;
+        font-size: 0.95rem;
+        font-weight: 500;
+        cursor: pointer;
+        border-radius: 12px;
+        transition: all 0.2s ease;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-search-mobile i {
+        font-size: 1.2rem;
+        color: #00f5c4;
+    }
+
+    .nav-search-mobile:active {
+        background: rgba(0, 245, 196, 0.1);
+        color: #f1f5f9;
+    }
+
+    /* Linha do tema mobile */
     .nav-item--footer {
+        display: block;
         border-bottom: none !important;
-        margin-top: auto;
-        padding-top: 1rem;
         border-top: 1px solid rgba(255, 255, 255, 0.08) !important;
+        padding: 0.5rem 0 0.25rem;
     }
 
     .nav-theme-mobile {
@@ -105,7 +135,7 @@
         color: #00f5c4;
     }
 
-    .nav-theme-mobile:hover {
+    .nav-theme-mobile:active {
         background: rgba(255, 255, 255, 0.05);
         color: #f1f5f9;
     }
@@ -114,10 +144,12 @@
         border-top-color: rgba(0, 0, 0, 0.08) !important;
     }
 
+    [data-theme="light"] .nav-search-mobile,
     [data-theme="light"] .nav-theme-mobile {
         color: #64748b;
     }
 
+    [data-theme="light"] .nav-search-mobile i,
     [data-theme="light"] .nav-theme-mobile i {
         color: #a855f7;
     }
