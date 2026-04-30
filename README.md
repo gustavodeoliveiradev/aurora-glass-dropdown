@@ -38,7 +38,7 @@ Construído com CSS puro + JavaScript vanilla — zero dependências.
 | **Dia 1** | `fix: resolve bugs de z-index, tap-highlight e menu mobile` | ✅ Concluído |
 | **Dia 2** | `feat: animações escalonadas + linha aurora + prefers-reduced-motion` | ✅ Concluído |
 | **Dia 3** | `feat: spotlight cursor na navbar + ripple nos links ao clicar` | ✅ Concluído |
-| **Dia 4** | `feat: search bar expansível integrada à navbar` | 🔜 |
+| **Dia 4** | `feat: search bar expansível com foco automático e Escape para fechar` | ✅ Concluído |
 | **Dia 5** | `feat: active indicator animado com underline que desliza entre itens` | 🔜 |
 | **Dia 6** | `feat: scroll behavior — navbar compacta + progress bar de leitura` | 🔜 |
 | **Dia 7** | `refactor: audit de acessibilidade completo + documentação final` | 🔜 |
@@ -54,15 +54,16 @@ aurora-glass-dropdown/
 ├── README.md
 └── css/
 │   ├── base.css          # Reset, variáveis CSS, fundo aurora animado
-│   ├── navbar.css        # Barra principal flutuante (glassmorphism via ::before)
+│   ├── navbar.css        # Barra principal flutuante + search bar
 │   ├── dropdown.css      # Submenus, mega dropdown e nested
-│   ├── animations.css    # Keyframes e transições
+│   ├── animations.css    # Keyframes, transições e prefers-reduced-motion
 │   ├── themes.css        # Dark / Light mode
 │   └── responsive.css    # Breakpoints mobile-first
 └── js/
-    ├── navbar.js         # Efeito spotlight no cursor
+    ├── navbar.js         # Spotlight cursor + ripple nos links
     ├── dropdown.js       # Click para abrir dropdowns
     ├── mobile.js         # Hamburger menu
+    ├── search.js         # Search bar expansível
     └── theme.js          # Toggle de tema com persistência
 ```
 

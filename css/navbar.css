@@ -291,3 +291,185 @@
 .hamburger.active .hamburger-line:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
 }
+
+/* ============================================
+   SEARCH BAR EXPANSÍVEL (Dia 4)
+   ============================================ */
+
+.search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Botão lupa */
+.search-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 2;
+    flex-shrink: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.search-trigger i {
+    font-size: 1.1rem;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.search-trigger:hover {
+    border-color: rgba(0, 245, 196, 0.4);
+    color: #00f5c4;
+    background: rgba(0, 245, 196, 0.08);
+}
+
+.search-wrapper.active .search-trigger {
+    border-color: rgba(0, 245, 196, 0.5);
+    color: #00f5c4;
+    background: rgba(0, 245, 196, 0.1);
+}
+
+.search-wrapper.active .search-trigger i {
+    transform: rotate(90deg) scale(0.85);
+}
+
+/* Campo de busca — expande a partir da lupa */
+.search-field {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    width: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.25s ease;
+
+    background: rgba(15, 18, 35, 0.95);
+    border: 1px solid rgba(0, 245, 196, 0.25);
+    border-radius: 999px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(0, 245, 196, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.search-wrapper.active .search-field {
+    width: 280px;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.search-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #f1f5f9;
+    font-family: inherit;
+    font-size: 0.9rem;
+    padding: 0.6rem 0.75rem 0.6rem 1.1rem;
+    min-width: 0;
+}
+
+.search-input::placeholder {
+    color: #475569;
+}
+
+.search-input::-webkit-search-cancel-button {
+    display: none;
+}
+
+.search-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255, 255, 255, 0.06);
+    color: #64748b;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin-right: 6px;
+    transition: all 0.15s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.search-close:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: #f1f5f9;
+}
+
+/* Light mode */
+[data-theme="light"] .search-trigger {
+    border-color: rgba(0, 0, 0, 0.1);
+    background: rgba(0, 0, 0, 0.04);
+    color: #64748b;
+}
+
+[data-theme="light"] .search-trigger:hover,
+[data-theme="light"] .search-wrapper.active .search-trigger {
+    border-color: rgba(168, 85, 247, 0.4);
+    color: #a855f7;
+    background: rgba(168, 85, 247, 0.08);
+}
+
+[data-theme="light"] .search-field {
+    background: rgba(255, 255, 255, 0.97);
+    border-color: rgba(168, 85, 247, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] .search-input {
+    color: #0f172a;
+}
+
+[data-theme="light"] .search-input::placeholder {
+    color: #94a3b8;
+}
+
+/* Mobile: search field ocupa a largura disponível */
+@media (max-width: 768px) {
+    .search-wrapper.active .search-field {
+        width: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-wrapper {
+        position: static;
+    }
+
+    .search-field {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        right: 1rem;
+        width: auto !important;
+        transform: none;
+        border-radius: 16px;
+    }
+
+    .search-wrapper.active .search-field {
+        width: auto;
+    }
+}
