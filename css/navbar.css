@@ -137,6 +137,7 @@
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    position: relative; /* ancora o magic indicator */
 }
 
 .nav-item {
@@ -675,4 +676,59 @@
 [data-theme="light"] .search-result-item:hover {
     background: rgba(168, 85, 247, 0.08);
     color: #0f172a;
+}
+
+
+/* ============================================
+   MAGIC LINE INDICATOR (Dia 5)
+   Pill animada que desliza entre os nav-items
+   ============================================ */
+.nav-indicator {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 38px;
+    border-radius: 999px;
+    background: linear-gradient(135deg,
+        rgba(0, 245, 196, 0.18),
+        rgba(168, 85, 247, 0.18)
+    );
+    border: 1px solid rgba(0, 245, 196, 0.3);
+    box-shadow:
+        0 0 20px rgba(0, 245, 196, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+    z-index: 0;
+
+    /* Animação principal — elástica e suave */
+    transition:
+        left   0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        width  0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+        opacity 0.25s ease;
+
+    opacity: 0; /* começa invisível, aparece ao primeiro clique */
+}
+
+.nav-indicator.visible {
+    opacity: 1;
+}
+
+/* Garante que o nav-link fica acima da pill */
+.nav-item {
+    position: relative;
+    z-index: 1;
+}
+
+[data-theme="light"] .nav-indicator {
+    background: linear-gradient(135deg,
+        rgba(0, 205, 160, 0.15),
+        rgba(124, 58, 237, 0.12)
+    );
+    border-color: rgba(0, 205, 160, 0.35);
+    box-shadow: 0 0 16px rgba(0, 205, 160, 0.1);
+}
+
+/* No mobile o indicator não aparece */
+@media (max-width: 768px) {
+    .nav-indicator { display: none; }
 }
