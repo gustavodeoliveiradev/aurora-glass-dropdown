@@ -732,3 +732,96 @@
 @media (max-width: 768px) {
     .nav-indicator { display: none; }
 }
+
+
+/* ============================================
+   SCROLL BEHAVIOR (Dia 6)
+   Navbar compacta + progress bar de leitura
+   ============================================ */
+
+/* Estado compacto — ativado via JS ao rolar */
+.navbar.scrolled {
+    top: 0.5rem;
+    height: 56px;
+    padding: 0 1.5rem;
+    gap: 1rem;
+    box-shadow:
+        0 8px 40px rgba(0, 0, 0, 0.6),
+        0 0 30px rgba(0, 245, 196, 0.1);
+}
+
+/* Transição suave de todas as props afetadas */
+.navbar {
+    transition:
+        top    0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        padding 0.3s ease,
+        gap    0.3s ease,
+        border-color 0.3s ease,
+        box-shadow   0.3s ease;
+}
+
+/* Logo compacta no scroll */
+.navbar.scrolled .logo-text {
+    font-size: 0.95rem;
+}
+
+.logo-text {
+    transition: font-size 0.3s ease;
+}
+
+/* Links ficam levemente menores */
+.navbar.scrolled .nav-link {
+    font-size: 0.82rem;
+    padding: 0.45rem 0.75rem;
+}
+
+/* Indicator ajusta junto */
+.navbar.scrolled .nav-indicator {
+    height: 32px;
+}
+
+/* ── Progress bar de leitura ─────────────────────────────────────── */
+.scroll-progress {
+    position: absolute;
+    bottom: -1px;         /* cola na borda inferior da navbar */
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg,
+        #00f5c4,
+        #a855f7,
+        #38bdf8
+    );
+    border-radius: 0 999px 999px 0;
+    transition: width 0.1s linear;
+    pointer-events: none;
+    z-index: 2;
+}
+
+[data-theme="light"] .scroll-progress {
+    background: linear-gradient(90deg,
+        #00b894,
+        #7c3aed,
+        #0284c7
+    );
+}
+
+/* Esconde a progress bar quando não rolou nada */
+.scroll-progress.hidden {
+    opacity: 0;
+}
+
+/* Animação de glow quando chega a 100% */
+.scroll-progress.complete {
+    box-shadow: 0 0 8px rgba(0, 245, 196, 0.8);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .navbar,
+    .navbar.scrolled .nav-link,
+    .nav-logo-text,
+    .scroll-progress {
+        transition: none !important;
+    }
+}

@@ -40,7 +40,7 @@ Construído com CSS puro + JavaScript vanilla — zero dependências.
 | **Dia 3** | `feat: spotlight cursor na navbar + ripple nos links ao clicar` | ✅ Concluído |
 | **Dia 4** | `feat: search bar expansível com busca funcional no menu` | ✅ Concluído |
 | **Dia 5** | `feat: magic line indicator animada que desliza entre os itens` | ✅ Concluído |
-| **Dia 6** | `feat: scroll behavior — navbar compacta + progress bar de leitura` | 🔜 |
+| **Dia 6** | `feat: navbar compacta no scroll + progress bar de leitura` | ✅ Concluído |
 | **Dia 7** | `refactor: audit de acessibilidade completo + documentação final` | 🔜 |
 
 ---
@@ -54,7 +54,7 @@ aurora-glass-dropdown/
 ├── README.md
 └── css/
 │   ├── base.css          # Reset, variáveis CSS, fundo aurora animado
-│   ├── navbar.css        # Barra principal flutuante + magic indicator
+│   ├── navbar.css        # Barra principal + scroll behavior + progress bar
 │   ├── dropdown.css      # Submenus, mega dropdown e nested
 │   ├── animations.css    # Keyframes, transições e prefers-reduced-motion
 │   ├── themes.css        # Dark / Light mode
@@ -65,6 +65,7 @@ aurora-glass-dropdown/
     ├── mobile.js         # Hamburger menu
     ├── search.js         # Search bar com busca funcional
     ├── indicator.js      # Magic line indicator animada
+    ├── scroll.js         # Navbar compacta + progress bar de leitura
     └── theme.js          # Toggle de tema com persistência
 ```
 
