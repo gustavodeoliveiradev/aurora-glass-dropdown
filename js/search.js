@@ -70,6 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
             .forEach(i => i.classList.remove('open'));
         wrapper.classList.add('active');
         trigger.setAttribute('aria-expanded', 'true');
+        // Adiciona classe na navbar para encolher os nav-items
+        const navbar = document.getElementById('navbar');
+        if (navbar) navbar.classList.add('search-open');
         setTimeout(() => input && input.focus(), 420);
     }
 
@@ -79,6 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (input) input.value = '';
         desktopResults.classList.remove('visible');
         desktopResults.innerHTML = '';
+        // Remove classe da navbar
+        const navbar = document.getElementById('navbar');
+        if (navbar) navbar.classList.remove('search-open');
     }
 
     if (trigger) {

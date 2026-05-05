@@ -351,7 +351,7 @@
     transform: rotate(90deg) scale(0.85);
 }
 
-/* Campo de busca — expande a partir da lupa */
+/* Campo de busca — expande dentro do fluxo da navbar */
 .search-field {
     position: absolute;
     right: 0;
@@ -382,11 +382,14 @@
         0 0 0 1px rgba(0, 245, 196, 0.08),
         inset 0 1px 0 rgba(255, 255, 255, 0.05);
     white-space: nowrap;
+    z-index: 10;
 }
 
 .search-wrapper.active .search-field {
-    width: 280px;
-    max-width: 280px;
+    /* Calcula a largura disponível: da lupa até a borda esquerda da navbar,
+       sem sobrepor nenhum item */
+    width: min(320px, 40vw);
+    max-width: min(320px, 40vw);
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -394,6 +397,23 @@
         width 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         opacity 0.25s ease,
         visibility 0s linear 0s;
+}
+
+/* Quando search abre: encolhe os nav-links para dar espaço */
+.navbar.search-open .nav-menu {
+    flex: 1;
+}
+
+.navbar.search-open .nav-menu .nav-item:not(.active):not(.nav-item--footer):not(.nav-item--search-row) {
+    opacity: 0;
+    pointer-events: none;
+    width: 0;
+    overflow: hidden;
+    transition: opacity 0.2s ease, width 0.3s ease;
+}
+
+.navbar:not(.search-open) .nav-menu .nav-item {
+    transition: opacity 0.3s ease 0.1s, width 0.3s ease;
 }
 
 .search-input {
