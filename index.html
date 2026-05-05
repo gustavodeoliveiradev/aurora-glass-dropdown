@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Aurora Glass — Dropdown menu moderno com glassmorphism, animações fluidas e totalmente acessível. Construído com CSS puro e JavaScript vanilla.">
     <title>Aurora Glass — Tech Dropdown</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,218 +19,254 @@
     <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
-    <div class="aurora-bg">
+
+    <!-- Skip link: permite usuários de teclado/leitor de tela pular a navbar -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <div class="aurora-bg" aria-hidden="true">
         <div class="aurora-blob blob-1"></div>
         <div class="aurora-blob blob-2"></div>
         <div class="aurora-blob blob-3"></div>
     </div>
 
-    <nav class="navbar" id="navbar">
-        <div class="navbar-brand">
-            <i class="ph ph-hexagon logo-icon"></i>
-            <span class="logo-text">Aurora<span class="logo-accent">Tech</span></span>
-        </div>
+    <nav class="navbar" id="navbar" aria-label="Navegação principal">
 
-        <button class="hamburger" id="hamburger" aria-label="Abrir menu" aria-expanded="false">
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
-            <span class="hamburger-line"></span>
+        <a href="#" class="navbar-brand" aria-label="Aurora Tech — Página inicial">
+            <i class="ph ph-hexagon logo-icon" aria-hidden="true"></i>
+            <span class="logo-text">Aurora<span class="logo-accent">Tech</span></span>
+        </a>
+
+        <button
+            class="hamburger"
+            id="hamburger"
+            aria-label="Abrir menu de navegação"
+            aria-expanded="false"
+            aria-controls="navMenu"
+        >
+            <span class="hamburger-line" aria-hidden="true"></span>
+            <span class="hamburger-line" aria-hidden="true"></span>
+            <span class="hamburger-line" aria-hidden="true"></span>
         </button>
 
-        <ul class="nav-menu" id="navMenu">
-            <li class="nav-item active">
-                <a href="#" class="nav-link">
-                    <i class="ph ph-house"></i>
+        <ul class="nav-menu" id="navMenu" role="menubar" aria-label="Menu principal">
+
+            <li class="nav-item active" role="none">
+                <a href="#main-content" class="nav-link" role="menuitem">
+                    <i class="ph ph-house" aria-hidden="true"></i>
                     <span>Home</span>
                 </a>
             </li>
 
-            <li class="nav-item has-dropdown">
-                <a href="#" class="nav-link">
-                    <i class="ph ph-info"></i>
+            <li class="nav-item has-dropdown" role="none">
+                <a href="#" class="nav-link"
+                    role="menuitem"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    id="menu-sobre">
+                    <i class="ph ph-info" aria-hidden="true"></i>
                     <span>Sobre</span>
-                    <i class="ph ph-caret-down dropdown-arrow"></i>
+                    <i class="ph ph-caret-down dropdown-arrow" aria-hidden="true"></i>
                 </a>
-                <div class="dropdown">
-                    <div class="dropdown-header">
-                        <i class="ph ph-buildings"></i>
+                <div class="dropdown" role="menu" aria-labelledby="menu-sobre">
+                    <div class="dropdown-header" aria-hidden="true">
+                        <i class="ph ph-buildings" aria-hidden="true"></i>
                         <span>A Empresa</span>
                     </div>
-                    <ul class="dropdown-list">
-                        <li><a href="#"><i class="ph ph-book-open-text"></i>Nossa História</a></li>
-                        <li><a href="#"><i class="ph ph-users"></i>Equipe</a></li>
-                        <li><a href="#"><i class="ph ph-briefcase"></i>Carreiras</a></li>
-                        <li><a href="#"><i class="ph ph-trophy"></i>Prêmios</a></li>
+                    <ul class="dropdown-list" role="none">
+                        <li role="none"><a href="#" role="menuitem"><i class="ph ph-book-open-text" aria-hidden="true"></i>Nossa História</a></li>
+                        <li role="none"><a href="#" role="menuitem"><i class="ph ph-users" aria-hidden="true"></i>Equipe</a></li>
+                        <li role="none"><a href="#" role="menuitem"><i class="ph ph-briefcase" aria-hidden="true"></i>Carreiras</a></li>
+                        <li role="none"><a href="#" role="menuitem"><i class="ph ph-trophy" aria-hidden="true"></i>Prêmios</a></li>
                     </ul>
                 </div>
             </li>
 
-            <li class="nav-item has-dropdown mega-dropdown">
-                <a href="#" class="nav-link">
-                    <i class="ph ph-rocket-launch"></i>
+            <li class="nav-item has-dropdown mega-dropdown" role="none">
+                <a href="#" class="nav-link"
+                    role="menuitem"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    id="menu-servicos">
+                    <i class="ph ph-rocket-launch" aria-hidden="true"></i>
                     <span>Serviços</span>
-                    <i class="ph ph-caret-down dropdown-arrow"></i>
+                    <i class="ph ph-caret-down dropdown-arrow" aria-hidden="true"></i>
                 </a>
-                <div class="dropdown dropdown-wide">
+                <div class="dropdown dropdown-wide" role="menu" aria-labelledby="menu-servicos">
                     <div class="dropdown-grid">
                         <div class="dropdown-column">
-                            <div class="dropdown-header">
-                                <i class="ph ph-code"></i>
+                            <div class="dropdown-header" aria-hidden="true">
+                                <i class="ph ph-code" aria-hidden="true"></i>
                                 <span>Desenvolvimento</span>
                             </div>
-                            <ul class="dropdown-list">
-                                <li><a href="#"><i class="ph ph-globe"></i>Web Apps</a></li>
-                                <li><a href="#"><i class="ph ph-device-mobile"></i>Mobile</a></li>
-                                <li class="has-nested">
-                                    <a href="#">
+                            <ul class="dropdown-list" role="none">
+                                <li role="none"><a href="#" role="menuitem"><i class="ph ph-globe" aria-hidden="true"></i>Web Apps</a></li>
+                                <li role="none"><a href="#" role="menuitem"><i class="ph ph-device-mobile" aria-hidden="true"></i>Mobile</a></li>
+                                <li class="has-nested" role="none">
+                                    <a href="#" role="menuitem"
+                                        aria-haspopup="true"
+                                        aria-expanded="false">
                                         <span class="nested-link-content">
-                                            <i class="ph ph-stack"></i>
+                                            <i class="ph ph-stack" aria-hidden="true"></i>
                                             <span>Backend</span>
                                         </span>
-                                        <i class="ph ph-caret-right nested-arrow"></i>
+                                        <i class="ph ph-caret-right nested-arrow" aria-hidden="true"></i>
                                     </a>
-                                    <div class="nested-dropdown">
-                                        <ul>
-                                            <li><a href="#"><i class="ph ph-database"></i>APIs REST</a></li>
-                                            <li><a href="#"><i class="ph ph-cloud"></i>Cloud Native</a></li>
-                                            <li><a href="#"><i class="ph ph-shield-check"></i>Segurança</a></li>
+                                    <div class="nested-dropdown" role="menu" aria-label="Submenu Backend">
+                                        <ul role="none">
+                                            <li role="none"><a href="#" role="menuitem"><i class="ph ph-database" aria-hidden="true"></i>APIs REST</a></li>
+                                            <li role="none"><a href="#" role="menuitem"><i class="ph ph-cloud" aria-hidden="true"></i>Cloud Native</a></li>
+                                            <li role="none"><a href="#" role="menuitem"><i class="ph ph-shield-check" aria-hidden="true"></i>Segurança</a></li>
                                         </ul>
                                     </div>
                                 </li>
-                                <li><a href="#"><i class="ph ph-cpu"></i>DevOps</a></li>
+                                <li role="none"><a href="#" role="menuitem"><i class="ph ph-cpu" aria-hidden="true"></i>DevOps</a></li>
                             </ul>
                         </div>
 
                         <div class="dropdown-column">
-                            <div class="dropdown-header">
-                                <i class="ph ph-paint-brush"></i>
+                            <div class="dropdown-header" aria-hidden="true">
+                                <i class="ph ph-paint-brush" aria-hidden="true"></i>
                                 <span>Design</span>
                             </div>
-                            <ul class="dropdown-list">
-                                <li><a href="#"><i class="ph ph-palette"></i>UI/UX</a></li>
-                                <li><a href="#"><i class="ph ph-pen-nib"></i>Branding</a></li>
-                                <li><a href="#"><i class="ph ph-video"></i>Motion</a></li>
+                            <ul class="dropdown-list" role="none">
+                                <li role="none"><a href="#" role="menuitem"><i class="ph ph-palette" aria-hidden="true"></i>UI/UX</a></li>
+                                <li role="none"><a href="#" role="menuitem"><i class="ph ph-pen-nib" aria-hidden="true"></i>Branding</a></li>
+                                <li role="none"><a href="#" role="menuitem"><i class="ph ph-video" aria-hidden="true"></i>Motion</a></li>
                             </ul>
                         </div>
 
                         <div class="dropdown-column">
-                            <div class="dropdown-header">
-                                <i class="ph ph-chart-line-up"></i>
+                            <div class="dropdown-header" aria-hidden="true">
+                                <i class="ph ph-chart-line-up" aria-hidden="true"></i>
                                 <span>Consultoria</span>
                             </div>
-                            <ul class="dropdown-list">
-                                <li><a href="#"><i class="ph ph-strategy"></i>Estratégia Digital</a></li>
-                                <li><a href="#"><i class="ph ph-gear"></i>Arquitetura</a></li>
-                                <li><a href="#"><i class="ph ph-chart-pie-slice"></i>Analytics</a></li>
+                            <ul class="dropdown-list" role="none">
+                                <li role="none"><a href="#" role="menuitem"><i class="ph ph-strategy" aria-hidden="true"></i>Estratégia Digital</a></li>
+                                <li role="none"><a href="#" role="menuitem"><i class="ph ph-gear" aria-hidden="true"></i>Arquitetura</a></li>
+                                <li role="none"><a href="#" role="menuitem"><i class="ph ph-chart-pie-slice" aria-hidden="true"></i>Analytics</a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
             </li>
 
-            <li class="nav-item has-dropdown">
-                <a href="#" class="nav-link">
-                    <i class="ph ph-cpu"></i>
+            <li class="nav-item has-dropdown" role="none">
+                <a href="#" class="nav-link"
+                    role="menuitem"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    id="menu-techstack">
+                    <i class="ph ph-cpu" aria-hidden="true"></i>
                     <span>Tech Stack</span>
-                    <i class="ph ph-caret-down dropdown-arrow"></i>
+                    <i class="ph ph-caret-down dropdown-arrow" aria-hidden="true"></i>
                 </a>
-                <div class="dropdown">
-                    <div class="dropdown-header">
-                        <i class="ph ph-layers"></i>
+                <div class="dropdown" role="menu" aria-labelledby="menu-techstack">
+                    <div class="dropdown-header" aria-hidden="true">
+                        <i class="ph ph-layers" aria-hidden="true"></i>
                         <span>Nossas Tecnologias</span>
                     </div>
-                    <ul class="dropdown-list">
-                        <li><a href="#"><i class="ph ph-file-js"></i>JavaScript / TypeScript</a></li>
-                        <li><a href="#"><i class="ph ph-file-tsx"></i>React & Next.js</a></li>
-                        <li><a href="#"><i class="ph ph-file-py"></i>Python & Django</a></li>
-                        <li><a href="#"><i class="ph ph-file-c"></i>Rust & Go</a></li>
-                        <li><a href="#"><i class="ph ph-docker-logo"></i>Docker & K8s</a></li>
+                    <ul class="dropdown-list" role="none">
+                        <li role="none"><a href="#" role="menuitem"><i class="ph ph-file-js" aria-hidden="true"></i>JavaScript / TypeScript</a></li>
+                        <li role="none"><a href="#" role="menuitem"><i class="ph ph-file-tsx" aria-hidden="true"></i>React & Next.js</a></li>
+                        <li role="none"><a href="#" role="menuitem"><i class="ph ph-file-py" aria-hidden="true"></i>Python & Django</a></li>
+                        <li role="none"><a href="#" role="menuitem"><i class="ph ph-file-c" aria-hidden="true"></i>Rust & Go</a></li>
+                        <li role="none"><a href="#" role="menuitem"><i class="ph ph-docker-logo" aria-hidden="true"></i>Docker & K8s</a></li>
                     </ul>
                 </div>
             </li>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="ph ph-folder-open"></i>
+            <li class="nav-item" role="none">
+                <a href="#" class="nav-link" role="menuitem">
+                    <i class="ph ph-folder-open" aria-hidden="true"></i>
                     <span>Portfólio</span>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="ph ph-newspaper"></i>
+            <li class="nav-item" role="none">
+                <a href="#" class="nav-link" role="menuitem">
+                    <i class="ph ph-newspaper" aria-hidden="true"></i>
                     <span>Blog</span>
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a href="#" class="nav-link">
-                    <i class="ph ph-envelope-simple"></i>
+            <li class="nav-item" role="none">
+                <a href="#" class="nav-link" role="menuitem">
+                    <i class="ph ph-envelope-simple" aria-hidden="true"></i>
                     <span>Contato</span>
                 </a>
             </li>
 
-            <!-- Busca mobile — linha própria -->
-            <li class="nav-item nav-item--search-row">
-                <button class="nav-search-mobile" id="searchTriggerMobile" aria-label="Buscar">
-                    <i class="ph ph-magnifying-glass"></i>
+            <!-- Busca mobile -->
+            <li class="nav-item nav-item--search-row" role="none">
+                <button class="nav-search-mobile" id="searchTriggerMobile" aria-label="Abrir busca">
+                    <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
                     <span>Buscar</span>
                 </button>
             </li>
 
-            <!-- Tema mobile — linha própria com separador -->
-            <li class="nav-item nav-item--footer">
-                <button class="nav-theme-mobile" id="themeToggleMobile" aria-label="Alternar tema">
-                    <i class="ph ph-sun" id="themeIconMobile"></i>
+            <!-- Tema mobile -->
+            <li class="nav-item nav-item--footer" role="none">
+                <button class="nav-theme-mobile" id="themeToggleMobile" aria-label="Alternar entre tema claro e escuro">
+                    <i class="ph ph-sun" id="themeIconMobile" aria-hidden="true"></i>
                     <span>Alternar tema</span>
                 </button>
             </li>
         </ul>
 
-        <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
-            <i class="ph ph-sun" id="themeIcon"></i>
+        <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Alternar entre tema claro e escuro">
+            <i class="ph ph-sun" id="themeIcon" aria-hidden="true"></i>
         </button>
 
-        <!-- Search — visível só no desktop -->
-        <div class="search-wrapper" id="searchWrapper" role="search">
-            <button class="search-trigger" id="searchTrigger" aria-label="Abrir busca" aria-expanded="false" aria-controls="searchInput">
-                <i class="ph ph-magnifying-glass"></i>
+        <!-- Search desktop -->
+        <div class="search-wrapper" id="searchWrapper" role="search" aria-label="Busca no menu">
+            <button
+                class="search-trigger"
+                id="searchTrigger"
+                aria-label="Abrir campo de busca"
+                aria-expanded="false"
+                aria-controls="searchInput">
+                <i class="ph ph-magnifying-glass" aria-hidden="true"></i>
             </button>
-            <div class="search-field" id="searchField">
+            <div class="search-field" id="searchField" aria-hidden="true">
                 <input
                     type="search"
                     id="searchInput"
                     class="search-input"
-                    placeholder="Buscar..."
+                    placeholder="Buscar no menu..."
                     autocomplete="off"
-                    aria-label="Campo de busca"
+                    aria-label="Buscar itens do menu"
+                    aria-autocomplete="list"
+                    aria-controls="searchResults"
                 />
                 <button class="search-close" id="searchClose" aria-label="Fechar busca">
-                    <i class="ph ph-x"></i>
+                    <i class="ph ph-x" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
     </nav>
 
-    <!-- Search overlay mobile — fora do nav para evitar stacking context -->
-    <div class="search-overlay-mobile" id="searchOverlayMobile" role="search" aria-hidden="true">
+    <!-- Search overlay mobile -->
+    <div class="search-overlay-mobile" id="searchOverlayMobile" role="search" aria-label="Busca mobile" aria-hidden="true">
         <div class="search-overlay-inner">
-            <i class="ph ph-magnifying-glass search-overlay-icon"></i>
+            <i class="ph ph-magnifying-glass search-overlay-icon" aria-hidden="true"></i>
             <input
                 type="search"
                 id="searchInputMobile"
                 class="search-overlay-input"
-                placeholder="Buscar..."
+                placeholder="Buscar no menu..."
                 autocomplete="off"
-                aria-label="Campo de busca"
+                aria-label="Buscar itens do menu"
             />
             <button class="search-overlay-close" id="searchOverlayClose" aria-label="Fechar busca">
-                <i class="ph ph-x"></i>
+                <i class="ph ph-x" aria-hidden="true"></i>
             </button>
         </div>
     </div>
 
-    <main class="hero">
+    <main class="hero" id="main-content" tabindex="-1">
         <h1 class="hero-title">
             Aurora<span class="hero-accent">Glass</span>
         </h1>
@@ -237,10 +274,10 @@
             Dropdown menu moderno com glassmorphism, animações fluidas<br>
             e totalmente acessível. Construído com CSS puro + JavaScript vanilla.
         </p>
-        <div class="hero-badges">
-            <span class="badge"><i class="ph ph-check-circle"></i>Sem dependências</span>
-            <span class="badge"><i class="ph ph-check-circle"></i>Acessível (ARIA)</span>
-            <span class="badge"><i class="ph ph-check-circle"></i>Responsivo</span>
+        <div class="hero-badges" aria-label="Características do projeto">
+            <span class="badge"><i class="ph ph-check-circle" aria-hidden="true"></i>Sem dependências</span>
+            <span class="badge"><i class="ph ph-check-circle" aria-hidden="true"></i>Acessível (ARIA)</span>
+            <span class="badge"><i class="ph ph-check-circle" aria-hidden="true"></i>Responsivo</span>
         </div>
     </main>
 
@@ -251,5 +288,6 @@
     <script src="js/scroll.js"></script>
     <script src="js/mobile.js"></script>
     <script src="js/theme.js"></script>
+    <script src="js/keyboard.js"></script>
 </body>
 </html>

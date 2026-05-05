@@ -236,3 +236,39 @@ button {
 [data-theme="light"] .badge i {
     color: #7c3aed;
 }
+
+/* ============================================
+   SKIP LINK — Acessibilidade (Dia 7)
+   ============================================ */
+.skip-link {
+    position: fixed;
+    top: -100%;
+    left: 1rem;
+    z-index: 9999;
+    padding: 0.75rem 1.5rem;
+    background: #00f5c4;
+    color: #0a0a0f;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 0 0 12px 12px;
+    text-decoration: none;
+    transition: top 0.2s ease;
+    box-shadow: 0 4px 20px rgba(0, 245, 196, 0.4);
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid #0a0a0f;
+    outline-offset: 2px;
+}
+
+/* Focus visible global — garante outline nítido em navegação por teclado */
+:focus-visible {
+    outline: 2px solid #00f5c4;
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+[data-theme="light"] :focus-visible {
+    outline-color: #7c3aed;
+}
